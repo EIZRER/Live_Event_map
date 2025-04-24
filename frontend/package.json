@@ -1,6 +1,24 @@
 {
+  "name": "temp-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^19.1.2",
+    "@types/react-router-dom": "^5.3.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1"
+  },
   "dependencies": {
+    "@types/react": "^19.1.2",
     "axios": "^1.8.4",
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.1"
   }
 }
