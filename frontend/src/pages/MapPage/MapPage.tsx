@@ -190,7 +190,7 @@ const [events, setEvents] = useState<EventData[]>([]);
 
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyC2cj8_UP46-rxKwVrRvotGRQn8Qv3OEEI"
+      googleMapsApiKey="thh uurinho kayiig "
       libraries={['places']}
     >
       <div style={{ position: 'relative' }}>
@@ -306,7 +306,7 @@ const [events, setEvents] = useState<EventData[]>([]);
         {/* Controls */}
         <StreetViewButton
           map={map}
-          googleApiKey="AIzaSyC2cj8_UP46-rxKwVrRvotGRQn8Qv3OEEI"
+          googleApiKey="must have kay "
           streetViewActive={streetViewActive}
           setStreetViewActive={setStreetViewActive}
         />
