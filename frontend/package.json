@@ -9,12 +9,20 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.58.1",
+    "@types/node": "^22.15.2",
     "@types/react-dom": "^19.1.2",
     "@types/react-router-dom": "^5.3.3",
     "typescript": "~5.7.2",
     "vite": "^6.3.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@googlemaps/markerclusterer": "^2.5.3",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
+    "@react-google-maps/api": "^2.20.6",
     "@types/react": "^19.1.2",
     "axios": "^1.8.4",
     "react-dom": "^19.1.0",

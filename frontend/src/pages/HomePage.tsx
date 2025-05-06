@@ -1,11 +1,20 @@
+import React from 'react';
+import MapPage from './MapPage/MapPage'; // Зам нь зөв байгаа эсэхээ шалгаарай
+import Map from './MapPage/MapPage';
+
 const HomePage = () => {
-    return (
-      <div>
-        <h1>Welcome to Local Events Finder</h1>
-        <p>This is a placeholder until the main page is ready.</p>
+  return (
+    <div className="h-screen w-full flex flex-col items-center">
+      <h1 className="text-3xl font-bold mt-4">Welcome to Local Events Finder</h1>
+      <p className="text-gray-600 mb-4">Find events happening near you!</p>
+
+      {/* Map-ийг энд харуулна */}
+      <div className="w-full flex-1">
+        {/* <LiveEventMap /> */}
+        <Map />
       </div>
-    );
-  };
-  
-  export default HomePage;
-  
+    </div>
+  );
+};
+
+export default HomePage;
