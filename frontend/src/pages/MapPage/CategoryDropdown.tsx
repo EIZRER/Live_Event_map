@@ -39,11 +39,12 @@ const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
     <div
       ref={dropdownRef}
       style={{
-        position: 'absolute',
+        // position: 'absolute',
         top: '10px',
-        left: '450px',
-        zIndex: 10,
-        width: '240px',
+        // left: '36%',
+        // zIndex: 10,
+        width: '100%',
+        maxWidth: '240px',
         fontFamily: 'Arial, sans-serif',
       }}
     >

@@ -91,27 +91,27 @@ const [events, setEvents] = useState<EventData[]>([]);
     }
   }, [selectedCategory, userLocation]);
 
-  const handleSelectPlace = (place: any) => {
-    const lat = place.geometry?.location?.lat();
-    const lng = place.geometry?.location?.lng();
+  // const handleSelectPlace = (place: any) => {
+  //   const lat = place.geometry?.location?.lat();
+  //   const lng = place.geometry?.location?.lng();
 
-    if (!map || lat === undefined || lng === undefined) return;
+  //   if (!map || lat === undefined || lng === undefined) return;
 
-    // map.panTo({ lat, lng });
+  //   // map.panTo({ lat, lng });
 
-    setSelectedPlace({
-      lat,
-      lng,
-      name: place.name,
-      vicinity: place.vicinity,
-      icon: place.icon,
-      rating: place.rating,
-      user_ratings_total: place.user_ratings_total,
-      opening_hours: place.opening_hours,
-      photo: place.photos?.[0]?.getUrl({ maxWidth: 250, maxHeight: 100 }),
-    });
+  //   setSelectedPlace({
+  //     lat,
+  //     lng,
+  //     name: place.name,
+  //     vicinity: place.vicinity,
+  //     icon: place.icon,
+  //     rating: place.rating,
+  //     user_ratings_total: place.user_ratings_total,
+  //     opening_hours: place.opening_hours,
+  //     photo: place.photos?.[0]?.getUrl({ maxWidth: 250, maxHeight: 100 }),
+  //   });
 
-  };
+  // };
 
   const handleMapClick = (event: google.maps.MapMouseEvent) => {
     if (!map || !event.latLng) return;
@@ -190,10 +190,10 @@ const [events, setEvents] = useState<EventData[]>([]);
 
   return (
     <LoadScript
-      googleMapsApiKey="thh uurinho kayiig "
+      googleMapsApiKey="AIzaSyC2cj8_UP46-rxKwVrRvotGRQn8Qv3OEEI"
       libraries={['places']}
     >
-      <div style={{ position: 'relative' }}>
+      <div className='relative grid grid-cols-1 '>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={userLocation || defaultCenter}
@@ -302,11 +302,13 @@ const [events, setEvents] = useState<EventData[]>([]);
           {/* <LayersControl map={map} /> */}
 
 
+         
 
+          
         {/* Controls */}
         <StreetViewButton
           map={map}
-          googleApiKey="must have kay "
+          googleApiKey="AIzaSyC2cj8_UP46-rxKwVrRvotGRQn8Qv3OEEI"
           streetViewActive={streetViewActive}
           setStreetViewActive={setStreetViewActive}
         />
@@ -320,25 +322,38 @@ const [events, setEvents] = useState<EventData[]>([]);
               fetchNearbyPlaces={fetchNearbyPlaces}
             />
 
-            <CategoryDropdown
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-            />
+<div className='grid w-full h-full grid-cols-10 grid-rows-10 absolute z-10 pointer-events-none'>
+  <div className='grid col-span-4 col-start-1 pt-3 p-3 pointer-events-auto'>
+    {!showDirectionsForm && (
+      <SearchBar map={map} selectedPlace={selectedPlace} />
+    )}
+  </div>
 
-            <DirectionsForm
-              origin={origin}
-              destination={destination}
-              setOrigin={setOrigin}
-              setDestination={setDestination}
-              onSwap={handleSwap}
-              travelMode={travelMode}
-              setTravelMode={setTravelMode}
-              setShowDirectionsForm={setShowDirectionsForm}
-              showDirectionsForm={showDirectionsForm}
-              selectedPlace={selectedPlace}
-            />
+  <div className='grid col-span-3 col-start-5 pt-3 p-3 pointer-events-auto'>
+    <CategoryDropdown
+      selectedCategory={selectedCategory}
+      setSelectedCategory={setSelectedCategory}
+    />
+  </div>
 
-            {eventLocation && (
+  <div className='grid col-span-1 col-start-8 pt-3 p-3 pointer-events-auto'>
+    <DirectionsForm
+      origin={origin}
+      destination={destination}
+      setOrigin={setOrigin}
+      setDestination={setDestination}
+      onSwap={handleSwap}
+      travelMode={travelMode}
+      setTravelMode={setTravelMode}
+      setShowDirectionsForm={setShowDirectionsForm}
+      showDirectionsForm={showDirectionsForm}
+      selectedPlace={selectedPlace}
+      userLocation={userLocation}
+    />
+  </div>
+</div>
+
+            {eventLocation && destination && (
               <AddEventForm
                 location={eventLocation}
                 onSave={(newEvent) => {
@@ -355,17 +370,17 @@ const [events, setEvents] = useState<EventData[]>([]);
                   <>  
                     <TravelModeSelector travelMode={travelMode} setTravelMode={setTravelMode} />
 
+                    
                     {route && <DirectionsInfo route={route} />}
-
+                    
                   </>
                 )}
-                
-                {!showDirectionsForm && <SearchBar map={map} selectedPlace={selectedPlace}  />}
 
- 
-
+              
           </>
         )}
+
+
       </div>
     </LoadScript>
   );
